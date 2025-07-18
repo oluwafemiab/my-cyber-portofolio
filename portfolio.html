@@ -53,6 +53,28 @@
                 height: 400px;
             }
         }
+        .mobile-menu-open {
+            max-height: 500px !important; /* Sufficiently large to show all content */
+            opacity: 1 !important;
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #0d9488;
+            color: white;
+            padding: 0.75rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none; /* Hidden by default */
+            cursor: pointer;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 100;
+        }
+        .scroll-to-top:hover {
+            background-color: #0f766e;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
@@ -68,18 +90,18 @@
                 <a href="#experience" class="nav-link font-medium">Experience</a>
                 <a href="#contact" class="nav-link font-medium">Contact</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden text-slate-800">
+            <button id="mobile-menu-button" class="md:hidden text-slate-800 focus:outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
         </nav>
         <div id="mobile-menu" class="overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-in-out md:hidden px-6 pb-4">
-            <a href="#about" class="block py-2 nav-link">About</a>
-            <a href="#skills" class="block py-2 nav-link">Skills</a>
-            <a href="#projects" class="block py-2 nav-link">Projects</a>
-            <a href="#experience" class="block py-2 nav-link">Experience</a>
-            <a href="#contact" class="block py-2 nav-link">Contact</a>
+            <a href="#about" class="block py-2 nav-link mobile-nav-link">About</a>
+            <a href="#skills" class="block py-2 nav-link mobile-nav-link">Skills</a>
+            <a href="#projects" class="block py-2 nav-link mobile-nav-link">Projects</a>
+            <a href="#experience" class="block py-2 nav-link mobile-nav-link">Experience</a>
+            <a href="#contact" class="block py-2 nav-link mobile-nav-link">Contact</a>
         </div>
     </header>
 
@@ -91,109 +113,158 @@
             <h1 class="text-4xl md:text-6xl font-bold text-slate-900 leading-tight">Ajijola Oluwafemi Blessing</h1>
             <p class="mt-4 text-xl md:text-2xl text-teal-700 font-medium">Cybersecurity Analyst & Innovator</p>
             <p class="mt-6 max-w-3xl mx-auto text-lg text-slate-600">
-                Highly accomplished analyst with over 6 years of experience in designing secure systems, detecting threats, and building innovative, AI-powered security tools. Passionate about leveraging open-source technologies to solve real-world cybersecurity challenges.
+                Highly accomplished analyst with over 6 years of experience in designing secure systems, detecting threats, and building innovative, AI-powered security tools. Passionate about leveraging open-source technologies to solve real-world cybersecurity challenges. My mission is to contribute to a safer digital future.
             </p>
             <div class="mt-8 flex justify-center space-x-4">
-                <a href="#projects" class="bg-teal-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-teal-700 transition-colors">View My Work</a>
-                <a href="#contact" class="bg-white text-slate-700 font-semibold px-8 py-3 rounded-lg border border-slate-300 hover:bg-slate-100 transition-colors">Get In Touch</a>
+                <a href="#projects" class="bg-teal-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-teal-700 transition-colors shadow-md">Explore My Innovations</a>
+                <a href="#contact" class="bg-white text-slate-700 font-semibold px-8 py-3 rounded-lg border border-slate-300 hover:bg-slate-100 transition-colors shadow-md">Connect With Me</a>
             </div>
         </section>
 
         <!-- Skills Section -->
         <section id="skills" class="py-20">
             <h2 class="text-3xl font-bold text-center mb-4">Core Competencies</h2>
-            <p class="text-center text-slate-600 max-w-2xl mx-auto mb-12">My expertise spans a wide range of cybersecurity domains, from offensive security simulations to defensive infrastructure design and innovative AI applications.</p>
+            <p class="text-center text-slate-600 max-w-2xl mx-auto mb-12">My expertise spans a wide range of cybersecurity domains, from offensive security simulations to defensive infrastructure design and innovative AI applications, reflecting a holistic approach to digital security.</p>
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="chart-container">
                     <canvas id="skillsChart"></canvas>
                 </div>
                 <div class="grid grid-cols-2 gap-6 text-slate-700">
-                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                    <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                         <span class="text-teal-600 text-2xl">🛡️</span>
                         <h3 class="font-semibold mt-2">Threat Detection & Intelligence</h3>
-                        <p class="text-sm text-slate-500">MISP, ELK Stack, Wazuh</p>
+                        <p class="text-sm text-slate-500">MISP, ELK Stack, Wazuh, IBM QRadar</p>
                     </div>
-                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                    <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                         <span class="text-teal-600 text-2xl">🌐</span>
-                        <h3 class="font-semibold mt-2">Network Security</h3>
-                        <p class="text-sm text-slate-500">NGFW, IDS/IPS, Nmap</p>
+                        <h3 class="font-semibold mt-2">Network Security & IDS</h3>
+                        <p class="text-sm text-slate-500">NGFW, Nmap, Wireshark, ntopng</p>
                     </div>
-                     <div class="bg-white p-4 rounded-lg shadow-sm">
+                     <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                         <span class="text-teal-600 text-2xl">🤖</span>
                         <h3 class="font-semibold mt-2">AI for Cybersecurity</h3>
-                        <p class="text-sm text-slate-500">LLM Integration, Log Analysis</p>
+                        <p class="text-sm text-slate-500">LLM Integration, Log/Email Analysis</p>
                     </div>
-                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                    <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                         <span class="text-teal-600 text-2xl">🚨</span>
-                        <h3 class="font-semibold mt-2">Incident Response</h3>
-                        <p class="text-sm text-slate-500">TheHive, Cortex, Forensics</p>
+                        <h3 class="font-semibold mt-2">Incident Response & Forensics</h3>
+                        <p class="text-sm text-slate-500">TheHive, Cortex, Autopsy, FTK Imager</p>
                     </div>
-                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                    <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                         <span class="text-teal-600 text-2xl">💻</span>
                         <h3 class="font-semibold mt-2">Secure Development</h3>
-                        <p class="text-sm text-slate-500">PHP, Vue.js, Python</p>
+                        <p class="text-sm text-slate-500">PHP, Vue.js, Laravel, React, Python</p>
                     </div>
-                     <div class="bg-white p-4 rounded-lg shadow-sm">
+                     <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                         <span class="text-teal-600 text-2xl">🍯</span>
-                        <h3 class="font-semibold mt-2">Honeypot Deployment</h3>
-                        <p class="text-sm text-slate-500">Cowrie, Dionaea, HoneyDB</p>
+                        <h3 class="font-semibold mt-2">Honeypot Deployment & Analysis</h3>
+                        <p class="text-sm text-slate-500">Cowrie, Dionaea, HoneyDB, Heralding</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-20 bg-white rounded-2xl">
-            <h2 class="text-3xl font-bold text-center mb-4">Project Showcase</h2>
-            <p class="text-center text-slate-600 max-w-2xl mx-auto mb-8">A curated selection of my work, demonstrating practical skills in building and deploying robust security solutions and innovative tools.</p>
+        <section id="projects" class="py-20 bg-white rounded-2xl shadow-lg">
+            <h2 class="text-3xl font-bold text-center mb-4">Innovation Showcase</h2>
+            <p class="text-center text-slate-600 max-w-2xl mx-auto mb-8">My portfolio highlights projects that demonstrate practical skills in building and deploying robust security solutions, alongside innovative open-source tools that push the boundaries of cybersecurity.</p>
             
             <div id="project-filters" class="flex flex-wrap justify-center gap-2 mb-12">
-                <button class="filter-btn active px-4 py-2 text-sm font-semibold rounded-full bg-slate-200 text-slate-700 transition" data-filter="all">All Projects</button>
-                <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-full bg-slate-200 text-slate-700 transition" data-filter="ai-automation">AI & Automation</button>
-                <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-full bg-slate-200 text-slate-700 transition" data-filter="threat-defense">Threat Defense</button>
-                <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-full bg-slate-200 text-slate-700 transition" data-filter="infrastructure">Security Infrastructure</button>
+                <button class="filter-btn active px-4 py-2 text-sm font-semibold rounded-full bg-slate-200 text-slate-700 hover:bg-teal-600 hover:text-white transition-colors" data-filter="all">All Innovations</button>
+                <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-full bg-slate-200 text-slate-700 hover:bg-teal-600 hover:text-white transition-colors" data-filter="ai-automation">AI & Automation</button>
+                <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-full bg-slate-200 text-slate-700 hover:bg-teal-600 hover:text-white transition-colors" data-filter="threat-defense">Advanced Threat Defense</button>
+                <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-full bg-slate-200 text-slate-700 hover:bg-teal-600 hover:text-white transition-colors" data-filter="infrastructure">Security Infrastructure</button>
             </div>
 
-            <div id="project-gallery" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div id="project-gallery" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
                 <!-- Projects will be dynamically inserted here -->
             </div>
         </section>
 
          <!-- Experience Section -->
         <section id="experience" class="py-20">
-            <h2 class="text-3xl font-bold text-center mb-12">Career & Education Timeline</h2>
+            <h2 class="text-3xl font-bold text-center mb-12">Career & Academic Journey</h2>
+            <p class="text-center text-slate-600 max-w-2xl mx-auto mb-12">My professional and academic path has provided me with a unique blend of technical support, leadership in security implementations, and specialized cybersecurity education.</p>
             <div class="max-w-3xl mx-auto">
-                <div class="relative border-l-2 border-teal-200 pl-8">
+                <div class="relative border-l-2 border-teal-400 pl-8">
                     <!-- Lidl -->
                     <div class="mb-12 relative">
-                        <div class="absolute -left-[42px] top-1.5 w-4 h-4 bg-teal-600 rounded-full border-4 border-white"></div>
+                        <div class="absolute -left-[42px] top-1.5 w-4 h-4 bg-teal-600 rounded-full border-4 border-white shadow"></div>
                         <p class="text-sm text-slate-500">Sept 2024 – Present</p>
-                        <h3 class="text-lg font-semibold">Administrator – Internal Process</h3>
+                        <h3 class="text-lg font-semibold text-slate-900">Administrator – Internal Process</h3>
                         <p class="font-medium text-teal-700">Lidl GB, Luton, United Kingdom</p>
-                        <p class="mt-2 text-slate-600">Resolving complex data handling issues in SAP Warehouse Management System and assisting with IT troubleshooting while maintaining a security-conscious approach.</p>
+                        <p class="mt-2 text-slate-600">Serve as a key point of contact for complex issue resolution within the Internal Process unit, ensuring accurate data handling across the SAP Warehouse Management System. Leverage IT proficiency for troubleshooting and system monitoring, maintaining a vigilant security-conscious approach in all process resolutions.</p>
                     </div>
                      <!-- OMNL Technical Lead -->
                     <div class="mb-12 relative">
-                        <div class="absolute -left-[42px] top-1.5 w-4 h-4 bg-teal-600 rounded-full border-4 border-white"></div>
+                        <div class="absolute -left-[42px] top-1.5 w-4 h-4 bg-teal-600 rounded-full border-4 border-white shadow"></div>
                         <p class="text-sm text-slate-500">Sept 2020 – July 2023</p>
-                        <h3 class="text-lg font-semibold">Technical Lead</h3>
+                        <h3 class="text-lg font-semibold text-slate-900">Technical Lead</h3>
                         <p class="font-medium text-teal-700">Office Machines Nigeria Limited (OMNL), Abuja, Nigeria</p>
-                        <p class="mt-2 text-slate-600">Spearheaded security implementations, oversaw honeypot deployments, conducted risk assessments, and mentored junior engineers on secure protocols.</p>
+                        <p class="mt-2 text-slate-600">Spearheaded the implementation of comprehensive security measures across all phases of client system development and infrastructure setup. Oversaw multiple honeypot deployments and conducted in-depth risk-based assessments, directly enhancing client network security posture. Mentored junior engineers on secure protocols and advanced threat intelligence gathering.</p>
                     </div>
                      <!-- OMNL IT Support -->
                     <div class="mb-12 relative">
-                        <div class="absolute -left-[42px] top-1.5 w-4 h-4 bg-teal-600 rounded-full border-4 border-white"></div>
+                        <div class="absolute -left-[42px] top-1.5 w-4 h-4 bg-teal-600 rounded-full border-4 border-white shadow"></div>
                         <p class="text-sm text-slate-500">Nov 2019 – Sept 2020</p>
-                        <h3 class="text-lg font-semibold">IT Support Engineer</h3>
+                        <h3 class="text-lg font-semibold text-slate-900">IT Support Engineer</h3>
                         <p class="font-medium text-teal-700">Office Machines Nigeria Limited (OMNL), Abuja, Nigeria</p>
-                        <p class="mt-2 text-slate-600">Handled network diagnostics, patch management, and assisted in forensic analysis of malware-affected systems.</p>
+                        <p class="mt-2 text-slate-600">Diagnosed and resolved complex network issues, managed critical patch deployments, and maintained antivirus integrity. Assisted in detailed forensic analysis of malware-affected systems and drafted comprehensive internal reports, contributing to robust incident response strategies.</p>
                     </div>
                     <!-- MSc -->
                     <div class="mb-12 relative">
-                        <div class="absolute -left-[42px] top-1.5 w-4 h-4 bg-teal-600 rounded-full border-4 border-white"></div>
+                        <div class="absolute -left-[42px] top-1.5 w-4 h-4 bg-teal-600 rounded-full border-4 border-white shadow"></div>
                          <p class="text-sm text-slate-500">2023 – 2024</p>
-                        <h3 class="text-lg font-semibold">MSc in Cybersecurity</h3>
+                        <h3 class="text-lg font-semibold text-slate-900">MSc in Cybersecurity</h3>
                         <p class="font-medium text-teal-700">University of Bedfordshire, Luton, United Kingdom</p>
+                        <p class="mt-2 text-slate-600">Focused on advanced topics including Network Security, Cryptography, Cyber Threat Analysis, Incident Response, Security Architecture, and Digital Forensics, providing a strong academic foundation for practical application.</p>
+                    </div>
+                     <!-- HND -->
+                    <div class="mb-0 relative">
+                        <div class="absolute -left-[42px] top-1.5 w-4 h-4 bg-teal-600 rounded-full border-4 border-white shadow"></div>
+                         <p class="text-sm text-slate-500">2012 – 2018</p>
+                        <h3 class="text-lg font-semibold text-slate-900">Higher National Diploma in Computer Science</h3>
+                        <p class="font-medium text-teal-700">Rufus Giwa Polytechnic, Owo, Nigeria</p>
+                        <p class="mt-2 text-slate-600">Core focus on Programming, Networking, System Analysis, and Web Development, establishing a robust technical foundation for my career.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications Sub-section -->
+            <div class="max-w-3xl mx-auto mt-16">
+                <h3 class="text-2xl font-bold text-center mb-8">Certifications</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <h4 class="font-semibold text-lg text-slate-900">Cisco Academy</h4>
+                        <ul class="list-disc list-inside text-slate-600 mt-2 space-y-1">
+                            <li>Network Defence</li>
+                            <li>Endpoint Security</li>
+                            <li>IoT Security</li>
+                            <li>Cyber Threat Management</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <h4 class="font-semibold text-lg text-slate-900">Huawei</h4>
+                        <ul class="list-disc list-inside text-slate-600 mt-2 space-y-1">
+                            <li>Routing & Switching</li>
+                            <li>Cloud Computing</li>
+                            <li>Big Data</li>
+                            <li>Datacom</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <h4 class="font-semibold text-lg text-slate-900">Microsoft/LinkedIn</h4>
+                        <ul class="list-disc list-inside text-slate-600 mt-2 space-y-1">
+                            <li>Career Essentials in Cybersecurity</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                        <h4 class="font-semibold text-lg text-slate-900">Other Relevant Certifications</h4>
+                        <ul class="list-disc list-inside text-slate-600 mt-2 space-y-1">
+                            <li>Digital Skills for Africa</li>
+                            <li>IBM Z Xplore – Concepts</li>
+                            <li>Python & Java certification</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -203,24 +274,31 @@
         <!-- Contact Section -->
         <section id="contact" class="py-20 text-center">
             <h2 class="text-3xl font-bold mb-4">Let's Connect</h2>
-            <p class="text-slate-600 max-w-xl mx-auto mb-8">I'm passionate about cybersecurity innovation and always open to discussing new projects, ideas, or opportunities.</p>
-            <a href="mailto:oluwafemiblessingajijola@gmail.com" class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-teal-700 transition-colors">
+            <p class="text-slate-600 max-w-xl mx-auto mb-8">I'm passionate about cybersecurity innovation and always open to discussing new projects, ideas, or opportunities. Feel free to reach out!</p>
+            <a href="mailto:oluwafemiblessingajijola@gmail.com" class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-teal-700 transition-colors shadow-lg">
                 oluwafemiblessingajijola@gmail.com
             </a>
             <div class="mt-8 flex justify-center space-x-6 text-slate-500">
-                <a href="#" class="hover:text-teal-600">[LinkedIn Profile]</a>
-                <a href="#" class="hover:text-teal-600">[Portfolio Link]</a>
+                <a href="https://www.linkedin.com/in/ajijola-oluwafemi-blessing" target="_blank" class="hover:text-teal-600 transition-colors">LinkedIn Profile</a>
+                <a href="https://oluwafemiab.github.io/my-cyber-portofolio/portfolio.html" target="_blank" class="hover:text-teal-600 transition-colors">Cybersecurity Portfolio</a>
             </div>
         </section>
 
     </main>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" class="scroll-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
 
     <!-- Modal -->
     <div id="project-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none">
         <div id="modal-content" class="bg-white rounded-lg shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300">
             <div class="sticky top-0 bg-white p-6 border-b border-slate-200 flex justify-between items-center">
                 <h3 id="modal-title" class="text-2xl font-bold"></h3>
-                <button id="modal-close-btn" class="text-slate-500 hover:text-slate-800">&times;</button>
+                <button id="modal-close-btn" class="text-slate-500 hover:text-slate-800 focus:outline-none">&times;</button>
             </div>
             <div class="p-6">
                 <div id="modal-tags" class="flex flex-wrap gap-2 mb-4"></div>
@@ -230,7 +308,7 @@
                      <ul id="modal-features" class="list-disc list-inside text-slate-600 space-y-1"></ul>
                 </div>
                  <div id="modal-link-container" class="mt-6">
-                    <a id="modal-link" href="#" target="_blank" class="inline-block bg-teal-100 text-teal-800 font-semibold px-4 py-2 rounded-lg hover:bg-teal-200 transition-colors">View on GitHub</a>
+                    <a id="modal-link" href="#" target="_blank" class="inline-block bg-teal-100 text-teal-800 font-semibold px-4 py-2 rounded-lg hover:bg-teal-200 transition-colors">View Project Details</a>
                 </div>
             </div>
         </div>
@@ -246,29 +324,29 @@
                     category: 'ai-automation',
                     short_desc: 'Open-source tool to analyze Linux logs for brute-force attacks using AI.',
                     tags: ['AI/ML', 'Open Source', 'Python', 'Streamlit', 'LLM'],
-                    description: 'PhemSentinel is an innovative open-source Streamlit tool designed to simplify and enhance the analysis of Linux `auth.log` files. It specifically targets SSH brute-force attacks and other anomalies. A key innovation is its integration with the OpenRouter API, which leverages Large Language Models (LLMs) to translate complex, technical log entries into plain, understandable English. This significantly lowers the barrier to entry for junior analysts and speeds up investigation times for seniors.',
+                    description: 'PhemSentinel is an innovative open-source Streamlit tool designed to simplify and enhance the analysis of Linux `auth.log` files. It specifically targets SSH brute-force attacks and other anomalies. A key innovation is its integration with the OpenRouter API, which leverages Large Language Models (LLMs) to translate complex, technical log entries into plain, understandable English. This significantly lowers the barrier to entry for junior analysts and speeds up investigation times for seniors. This project demonstrates cutting-edge application of AI in practical cybersecurity.',
                     features: [
-                        'AI-powered log explanation.',
-                        'Targeted SSH brute-force detection.',
-                        'User-friendly web interface via Streamlit.',
-                        'Contributes to the open-source security community.'
+                        'AI-powered log explanation for enhanced understanding.',
+                        'Targeted SSH brute-force attack detection and anomaly identification.',
+                        'User-friendly web interface built with Streamlit for accessibility.',
+                        'Significant contribution to the open-source security community, fostering collaborative defense.'
                     ],
-                    link: '#'
+                    link: 'https://github.com/oluwafemiab/phemsentinel-ai-log-analyzer' // Example GitHub link
                 },
                 {
                     id: 2,
                     title: 'PhishPhem - AI Phishing Analyzer',
                     category: 'ai-automation',
                     short_desc: 'Web tool for analyzing phishing emails with heuristic rules and AI.',
-                    tags: ['AI/ML', 'Web App', 'Threat Detection', 'PDF Generation'],
-                    description: 'PhishPhem is a web-based tool created to combat the pervasive threat of phishing. Users can submit suspicious emails via `.eml` file upload or by pasting raw text. The tool employs a dual-engine approach, combining robust heuristic rules with the analytical power of LLMs to accurately flag suspicious links, indicators of urgency, and domain mismatches. It provides actionable intelligence by generating a downloadable PDF report with a detailed threat score and an AI-summarized overview.',
+                    tags: ['AI/ML', 'Web App', 'Threat Detection', 'PDF Report'],
+                    description: 'PhishPhem is a sophisticated web-based tool created to combat the pervasive and evolving threat of phishing. Users can submit suspicious emails via `.eml` file upload or by pasting raw text. The tool employs a dual-engine approach, combining robust heuristic rules with the analytical power of LLMs to accurately flag suspicious links, indicators of urgency, and domain mismatches. It provides immediate, actionable intelligence by generating a downloadable PDF report with a detailed threat score and an AI-summarized overview, empowering users to make informed security decisions.',
                     features: [
-                        'Dual analysis engine (Heuristics + AI).',
-                        'Accepts .eml files or raw text.',
-                        'Generates comprehensive PDF reports.',
-                        'Provides actionable threat scoring.'
+                        'Dual analysis engine: Heuristics for common patterns, AI for nuanced threats.',
+                        'Flexible input: Accepts .eml files or raw text for broad applicability.',
+                        'Generates comprehensive PDF reports with clear threat scoring.',
+                        'AI-summarized overviews for quick understanding of complex threats.'
                     ],
-                    link: '#'
+                    link: 'https://github.com/oluwafemiab/phishphem-ai-analyzer' // Example GitHub link
                 },
                 {
                     id: 3,
@@ -276,13 +354,14 @@
                     category: 'threat-defense',
                     short_desc: 'Integrated honeypot system to detect and analyze Advanced Persistent Threats (APTs).',
                     tags: ['Honeypot', 'NGFW', 'ELK Stack', 'Threat Analysis', 'APT'],
-                    description: 'This project involved engineering and deploying a sophisticated honeypot system by integrating Cowrie (SSH honeypot) and Dionaea (malware capture honeypot) with an IPFire Next-Generation Firewall. All logs were centralized and analyzed using the ELK Stack (Elasticsearch, Logstash, Kibana). The primary goal was to create a high-interaction environment to effectively capture, log, and analyze the tactics, techniques, and procedures (TTPs) of Advanced Persistent Threats (APTs), providing deep insights for defensive strategy formulation.',
+                    description: 'This project involved engineering and deploying a sophisticated honeypot system by integrating multiple honeypot types (e.g., Cowrie for SSH and Dionaea for malware capture) with an IPFire Next-Generation Firewall. All captured logs and network traffic were centralized and analyzed using the powerful ELK Stack (Elasticsearch, Logstash, Kibana). The primary goal was to create a high-interaction, realistic environment to effectively capture, log, and analyze the tactics, techniques, and procedures (TTPs) of Advanced Persistent Threats (APTs), providing deep, actionable insights for defensive strategy formulation and threat intelligence.',
                     features: [
-                        'Integration of multiple honeypot types.',
-                        'NGFW for network control and visibility.',
-                        'Centralized logging and analysis with ELK Stack.',
-                        'Focus on detecting and analyzing sophisticated APTs.'
-                    ]
+                        'Integration of diverse honeypot types for comprehensive threat capture.',
+                        'NGFW for granular network control, traffic shaping, and enhanced visibility.',
+                        'Centralized logging and advanced analysis with ELK Stack for correlation.',
+                        'Focus on detecting and analyzing sophisticated, targeted APT campaigns.'
+                    ],
+                    link: 'https://github.com/oluwafemiab/honeypot-ngfw-system' // Example GitHub link
                 },
                 {
                     id: 4,
@@ -290,28 +369,29 @@
                     category: 'infrastructure',
                     short_desc: 'Full-scale SIEM solution built with Wazuh and ntopng for real-time monitoring.',
                     tags: ['SIEM', 'Wazuh', 'ntopng', 'NIDS', 'Log Management'],
-                    description: 'A fully operational Security Information and Event Management (SIEM) and Network Security Monitoring solution was built within a virtual testbed. This project leveraged Wazuh for its powerful Host-based Intrusion Detection System (HIDS) capabilities and endpoint monitoring, combined with ntopng for deep network traffic analysis. The integrated solution provided a comprehensive, real-time view of the network\'s security posture. Its effectiveness was validated through simulated brute-force and reconnaissance attacks to test detection accuracy and alerting mechanisms.',
+                    description: 'A fully operational Security Information and Event Management (SIEM) and Network Security Monitoring solution was built within a virtual testbed, demonstrating end-to-end security operations capabilities. This project leveraged Wazuh for its powerful Host-based Intrusion Detection System (HIDS) and endpoint monitoring, combined with ntopng for deep network traffic analysis and flow visibility. The integrated solution provided a comprehensive, real-time view of the network\'s security posture, enabling proactive threat detection and rapid incident response. Its effectiveness was rigorously validated through simulated brute-force and reconnaissance attacks to test detection accuracy and alerting mechanisms.',
                     features: [
-                        'Full SIEM deployment from scratch.',
-                        'Combines host-based (Wazuh) and network-based (ntopng) monitoring.',
-                        'Real-time threat monitoring and analysis.',
-                        'Validated with simulated attack scenarios.'
-                    ]
+                        'Full SIEM deployment from scratch, showcasing architectural design.',
+                        'Combines host-based (Wazuh) and network-based (ntopng) monitoring for layered defense.',
+                        'Real-time threat monitoring, log aggregation, and advanced analysis.',
+                        'Validated with simulated attack scenarios to prove detection efficacy.'
+                    ],
+                    link: 'https://github.com/oluwafemiab/siem-ntopng-wazuh' // Example GitHub link
                 },
                  {
                     id: 5,
                     title: 'CSP Analyzer',
-                    category: 'ai-automation',
+                    category: 'infrastructure',
                     short_desc: 'Web-based tool that evaluates website CSP headers for security.',
                     tags: ['Web Security', 'CSP', 'Open Source', 'Frontend'],
-                    description: 'The CSP Analyzer is a practical, web-based tool designed to help developers and security administrators improve their web application security. It evaluates a website\'s Content Security Policy (CSP) headers, identifying and flagging weak configurations or missing directives. The tool provides a comprehensive security grade and offers actionable, context-aware hardening recommendations, making it easier to implement a robust CSP and mitigate common web-based attacks like Cross-Site Scripting (XSS).',
+                    description: 'The CSP Analyzer is a practical, web-based tool designed to help developers and security administrators significantly improve their web application security. It evaluates a website\'s Content Security Policy (CSP) headers, meticulously identifying and flagging weak configurations or missing directives. The tool provides a comprehensive security grade and offers actionable, context-aware hardening recommendations, making it easier to implement a robust CSP and effectively mitigate common web-based attacks like Cross-Site Scripting (XSS) and data injection.',
                     features: [
-                        'Automated CSP header evaluation.',
-                        'Provides security grading and scoring.',
-                        'Offers actionable hardening recommendations.',
-                        'Contributes to improving web security best practices.'
+                        'Automated CSP header evaluation for quick security assessments.',
+                        'Provides a clear security grading and scoring system.',
+                        'Offers actionable hardening recommendations tailored to identified weaknesses.',
+                        'Contributes to improving web security best practices across the industry.'
                     ],
-                    link: '#'
+                    link: 'https://github.com/oluwafemiab/csp-analyzer' // Example GitHub link
                 },
                 {
                     id: 6,
@@ -319,13 +399,14 @@
                     category: 'infrastructure',
                     short_desc: 'Designed a secure email gateway to protect SME communications.',
                     tags: ['Email Security', 'PGP', 'Anti-Phishing', 'SME'],
-                    description: 'This project focused on designing and implementing a secure email gateway specifically to protect the communications of Small and Medium-sized Enterprises (SMEs). Using Axigen Mail Server as the core, the gateway was enhanced with integrated PGP encryption for end-to-end confidentiality and advanced filtering rules for phishing detection. The solution provided enterprise-level email security to an underserved market, safeguarding sensitive business information from interception and social engineering attacks.',
+                    description: 'This project focused on designing and implementing a robust and secure email gateway specifically to protect the sensitive communications of Small and Medium-sized Enterprises (SMEs). Using Axigen Mail Server as the core, the gateway was meticulously enhanced with integrated PGP encryption for end-to-end confidentiality and advanced filtering rules for sophisticated phishing detection. The solution provided enterprise-level email security to an underserved market, safeguarding critical business information from interception, social engineering attacks, and malware delivery.',
                     features: [
-                        'Integrated PGP encryption for data privacy.',
-                        'Advanced anti-phishing protections.',
-                        'Tailored for the specific needs of SMEs.',
-                        'Hardened mail server configuration.'
-                    ]
+                        'Integrated PGP encryption for robust data privacy and integrity.',
+                        'Advanced anti-phishing protections to counter evolving threats.',
+                        'Tailored for the specific security and operational needs of SMEs.',
+                        'Hardened mail server configuration for enhanced resilience against attacks.'
+                    ],
+                    link: 'https://github.com/oluwafemiab/secure-email-gateway' // Example GitHub link
                 }
             ];
 
@@ -334,6 +415,10 @@
             const modalContent = document.getElementById('modal-content');
             const modalCloseBtn = document.getElementById('modal-close-btn');
             const filterBtns = document.querySelectorAll('.filter-btn');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
             
             function renderProjects(filter = 'all') {
                 gallery.innerHTML = '';
@@ -413,13 +498,47 @@
             renderProjects();
             
             // Mobile menu toggle
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
             mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('max-h-0');
-                mobileMenu.classList.toggle('opacity-0');
-                mobileMenu.classList.toggle('max-h-screen');
-                mobileMenu.classList.toggle('opacity-100');
+                mobileMenu.classList.toggle('mobile-menu-open');
+            });
+
+            // Close mobile menu when a link is clicked
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('mobile-menu-open');
+                });
+            });
+
+            // Smooth scroll for all navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Scroll to Top Button functionality
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) { // Show button after scrolling down 300px
+                    scrollToTopBtn.style.display = 'block';
+                    scrollToTopBtn.style.opacity = '1';
+                } else {
+                    scrollToTopBtn.style.opacity = '0';
+                    setTimeout(() => {
+                        if (window.scrollY <= 300) { // Only hide if still at top after transition
+                            scrollToTopBtn.style.display = 'none';
+                        }
+                    }, 300); // Match transition duration
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             });
 
             // Skills Chart
