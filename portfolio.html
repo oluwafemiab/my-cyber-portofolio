@@ -88,6 +88,7 @@
                 <a href="#skills" class="nav-link font-medium">Skills</a>
                 <a href="#projects" class="nav-link font-medium">Projects</a>
                 <a href="#experience" class="nav-link font-medium">Experience</a>
+                <a href="#certifications" class="nav-link font-medium">Certifications</a>
                 <a href="#contact" class="nav-link font-medium">Contact</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden text-slate-800 focus:outline-none">
@@ -101,6 +102,7 @@
             <a href="#skills" class="block py-2 nav-link mobile-nav-link">Skills</a>
             <a href="#projects" class="block py-2 nav-link mobile-nav-link">Projects</a>
             <a href="#experience" class="block py-2 nav-link mobile-nav-link">Experience</a>
+            <a href="#certifications" class="block py-2 nav-link mobile-nav-link">Certifications</a>
             <a href="#contact" class="block py-2 nav-link mobile-nav-link">Contact</a>
         </div>
     </header>
@@ -174,6 +176,7 @@
                 <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-full bg-slate-200 text-slate-700 hover:bg-teal-600 hover:text-white transition-colors" data-filter="ai-automation">AI & Automation</button>
                 <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-full bg-slate-200 text-slate-700 hover:bg-teal-600 hover:text-white transition-colors" data-filter="threat-defense">Advanced Threat Defense</button>
                 <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-full bg-slate-200 text-slate-700 hover:bg-teal-600 hover:text-white transition-colors" data-filter="infrastructure">Security Infrastructure</button>
+                <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-full bg-slate-200 text-slate-700 hover:bg-teal-600 hover:text-white transition-colors" data-filter="web-security">Web Security</button>
             </div>
 
             <div id="project-gallery" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
@@ -212,26 +215,18 @@
                         <p class="mt-2 text-slate-600">Diagnosed and resolved complex network issues, managed critical patch deployments, and maintained antivirus integrity. Assisted in detailed forensic analysis of malware-affected systems and drafted comprehensive internal reports, contributing to robust incident response strategies.</p>
                     </div>
                     <!-- MSc -->
-                    <div class="mb-12 relative">
+                    <div class="mb-0 relative">
                         <div class="absolute -left-[42px] top-1.5 w-4 h-4 bg-teal-600 rounded-full border-4 border-white shadow"></div>
                          <p class="text-sm text-slate-500">2023 – 2024</p>
                         <h3 class="text-lg font-semibold text-slate-900">MSc in Cybersecurity</h3>
                         <p class="font-medium text-teal-700">University of Bedfordshire, Luton, United Kingdom</p>
                         <p class="mt-2 text-slate-600">Focused on advanced topics including Network Security, Cryptography, Cyber Threat Analysis, Incident Response, Security Architecture, and Digital Forensics, providing a strong academic foundation for practical application.</p>
                     </div>
-                     <!-- HND -->
-                    <div class="mb-0 relative">
-                        <div class="absolute -left-[42px] top-1.5 w-4 h-4 bg-teal-600 rounded-full border-4 border-white shadow"></div>
-                         <p class="text-sm text-slate-500">2012 – 2018</p>
-                        <h3 class="text-lg font-semibold text-slate-900">Higher National Diploma in Computer Science</h3>
-                        <p class="font-medium text-teal-700">Rufus Giwa Polytechnic, Owo, Nigeria</p>
-                        <p class="mt-2 text-slate-600">Core focus on Programming, Networking, System Analysis, and Web Development, establishing a robust technical foundation for my career.</p>
-                    </div>
                 </div>
             </div>
 
             <!-- Certifications Sub-section -->
-            <div class="max-w-3xl mx-auto mt-16">
+            <div id="certifications" class="max-w-3xl mx-auto mt-16">
                 <h3 class="text-2xl font-bold text-center mb-8">Certifications</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
@@ -279,8 +274,8 @@
                 oluwafemiblessingajijola@gmail.com
             </a>
             <div class="mt-8 flex justify-center space-x-6 text-slate-500">
-                <a href="https://www.linkedin.com/in/ajijola-oluwafemi-blessing" target="_blank" class="hover:text-teal-600 transition-colors">LinkedIn Profile</a>
-                <a href="https://oluwafemiab.github.io/my-cyber-portofolio/portfolio.html" target="_blank" class="hover:text-teal-600 transition-colors">Cybersecurity Portfolio</a>
+                <a href="https://www.linkedin.com/in/ajijola-oluwafemi-ba839712a/" target="_blank" class="hover:text-teal-600 transition-colors">LinkedIn Profile</a>
+                <a href="https://oluwafemiab.github.io/ajijola.github.io/" target="_blank" class="hover:text-teal-600 transition-colors">Cybersecurity Portfolio</a>
             </div>
         </section>
 
@@ -331,7 +326,7 @@
                         'User-friendly web interface built with Streamlit for accessibility.',
                         'Significant contribution to the open-source security community, fostering collaborative defense.'
                     ],
-                    link: 'https://github.com/oluwafemiab/phemsentinel-ai-log-analyzer' // Example GitHub link
+                    link: 'https://github.com/phemtech-solutions/PhemSentinel'
                 },
                 {
                     id: 2,
@@ -346,7 +341,7 @@
                         'Generates comprehensive PDF reports with clear threat scoring.',
                         'AI-summarized overviews for quick understanding of complex threats.'
                     ],
-                    link: 'https://github.com/oluwafemiab/phishphem-ai-analyzer' // Example GitHub link
+                    link: 'https://github.com/phemtech-solutions/PhishPhem'
                 },
                 {
                     id: 3,
@@ -361,7 +356,7 @@
                         'Centralized logging and advanced analysis with ELK Stack for correlation.',
                         'Focus on detecting and analyzing sophisticated, targeted APT campaigns.'
                     ],
-                    link: 'https://github.com/oluwafemiab/honeypot-ngfw-system' // Example GitHub link
+                    link: 'https://oluwafemiab.github.io/ajijola.github.io/projects/ngfw'
                 },
                 {
                     id: 4,
@@ -376,12 +371,12 @@
                         'Real-time threat monitoring, log aggregation, and advanced analysis.',
                         'Validated with simulated attack scenarios to prove detection efficacy.'
                     ],
-                    link: 'https://github.com/oluwafemiab/siem-ntopng-wazuh' // Example GitHub link
+                    link: 'https://github.com/oluwafemiab/siem-ntopng-wazuh' // Placeholder, as no specific link was provided for this in your list
                 },
                  {
                     id: 5,
                     title: 'CSP Analyzer',
-                    category: 'infrastructure',
+                    category: 'web-security',
                     short_desc: 'Web-based tool that evaluates website CSP headers for security.',
                     tags: ['Web Security', 'CSP', 'Open Source', 'Frontend'],
                     description: 'The CSP Analyzer is a practical, web-based tool designed to help developers and security administrators significantly improve their web application security. It evaluates a website\'s Content Security Policy (CSP) headers, meticulously identifying and flagging weak configurations or missing directives. The tool provides a comprehensive security grade and offers actionable, context-aware hardening recommendations, making it easier to implement a robust CSP and effectively mitigate common web-based attacks like Cross-Site Scripting (XSS) and data injection.',
@@ -391,7 +386,7 @@
                         'Offers actionable hardening recommendations tailored to identified weaknesses.',
                         'Contributes to improving web security best practices across the industry.'
                     ],
-                    link: 'https://github.com/oluwafemiab/csp-analyzer' // Example GitHub link
+                    link: 'https://phemtech-solutions.github.io/csp-analyzer'
                 },
                 {
                     id: 6,
@@ -406,7 +401,52 @@
                         'Tailored for the specific security and operational needs of SMEs.',
                         'Hardened mail server configuration for enhanced resilience against attacks.'
                     ],
-                    link: 'https://github.com/oluwafemiab/secure-email-gateway' // Example GitHub link
+                    link: 'https://oluwafemiab.github.io/ajijola.github.io/projects/email-security-gateway'
+                },
+                {
+                    id: 7,
+                    title: 'Cybersecurity Awareness Platform',
+                    category: 'web-security',
+                    short_desc: 'Developed a training tool for SMEs aligned with NCSC Cyber Essentials.',
+                    tags: ['Security Awareness', 'SME', 'NCSC', 'Education'],
+                    description: 'I developed an innovative Cybersecurity Awareness & Training Platform tailored specifically for Small and Medium-sized Enterprises (SMEs). This platform is meticulously aligned with NCSC Cyber Essentials Certification standards, providing a crucial resource for businesses to improve their foundational cybersecurity posture. It features interactive quizzes, robust SSL security, and role-based progression, ensuring relevant and engaging learning experiences for employees at all levels. This project directly addresses the critical need for human-centric security solutions in the SME sector.',
+                    features: [
+                        'Tailored for SMEs, addressing specific industry needs.',
+                        'Aligned with NCSC Cyber Essentials Certification for compliance.',
+                        'Interactive quizzes and role-based progression for engaging learning.',
+                        'SSL security implemented for platform integrity and user data protection.'
+                    ],
+                    link: 'https://oluwafemiab.github.io/ajijola.github.io/projects/cyberaware'
+                },
+                {
+                    id: 8,
+                    title: 'Honeypot Comparative Study',
+                    category: 'threat-defense',
+                    short_desc: 'Comparative analysis of honeypots using ELK Stack for threat detection.',
+                    tags: ['Honeypot', 'Research', 'ELK Stack', 'Threat Analysis'],
+                    description: 'This project involved conducting a comprehensive comparative study of various honeypot technologies, specifically MySQL-HoneypotD, HoneyDB, and Heralding. The evaluation utilized the ELK Stack (Elasticsearch, Logstash, Kibana) for advanced log normalization, centralized data aggregation, and in-depth threat detection and analysis. The study assessed each honeypot\'s service coverage, detection quality, and log richness under simulated attack conditions, providing valuable insights into their effectiveness and optimal deployment scenarios for different threat landscapes.',
+                    features: [
+                        'Detailed comparative analysis of multiple honeypot types.',
+                        'Utilized ELK Stack for robust log normalization and analysis.',
+                        'Evaluated service coverage and detection quality under simulated attacks.',
+                        'Provided insights for informed honeypot deployment strategies.'
+                    ],
+                    link: 'https://oluwafemiab.github.io/ajijola.github.io/projects/honeypot-comparison'
+                },
+                {
+                    id: 9,
+                    title: 'Secure Development of a Wellness Platform',
+                    category: 'web-security',
+                    short_desc: 'Built a wellness platform with emphasis on secure development and data protection.',
+                    tags: ['Web Development', 'Security Hardening', 'Laravel', 'Vue.js'],
+                    description: 'This project involved building a comprehensive wellness-focused website with a strong emphasis on secure development practices, clean architecture, and robust content protection. I implemented stringent security headers, secure form validation, and rigorous file validation to ensure the platform remains resilient against basic web threats. The platform includes interactive health content, embedded YouTube videos, and blog-style articles, all optimized for performance and user experience. This project bridges holistic wellness with secure digital presence, showcasing full-stack development with a security-first mindset.',
+                    features: [
+                        'Implemented strong security headers (HSTS, CSP).',
+                        'Robust form and file validation to prevent common attacks.',
+                        'Developed with Laravel and Vue.js for a secure and dynamic experience.',
+                        'Focus on data protection and user privacy.'
+                    ],
+                    link: 'https://wholenessoflifedna.com'
                 }
             ];
 
