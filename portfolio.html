@@ -314,7 +314,23 @@
         document.addEventListener('DOMContentLoaded', function() {
             const projects = [
                 {
-                    id: 1,
+                    "id": 1,
+                    "title": "VulnScan Reporter",
+                    "category": "vulnerability-scanning",
+                    "short_desc": "A lightweight, interactive web-based vulnerability scanner for home labs and educational use.",
+                    "tags": ["Python", "Nmap", "Streamlit", "Vulnerability Assessment", "Network Scanning", "Cybersecurity", "Automation"],
+                    "description": "VulnScan Reporter is a lightweight, interactive web-based vulnerability scanner built with Python, `python-nmap`, and Streamlit. It simplifies network reconnaissance by providing 'AI-like' actionable recommendations for detected vulnerabilities, making cybersecurity learning and home lab assessments more accessible. It generates human-readable Markdown reports with scan summaries, host details, open ports, identified services, Nmap script output, and actionable security recommendations based on common Nmap script findings (e.g., anonymous FTP, weak SSH config, exposed server banners).",
+                    "features": [
+                        "Customizable Nmap Scans (Aggressive, All Ports, Vuln Scripts, etc.).",
+                        "Support for additional Nmap arguments for advanced users.",
+                        "Detailed Markdown reports with AI-like recommendations.",
+                        "Option to download the full report.",
+                        "User-friendly web interface for ease of use."
+                    ],
+                    "link": "https://github.com/phemtech-solutions/VulnScan-Reporter",
+                },
+                {
+                    id: 2,
                     title: 'PhemSentinel - AI Log Analyzer',
                     category: 'ai-automation',
                     short_desc: 'Open-source tool to analyze Linux logs for brute-force attacks using AI.',
@@ -329,7 +345,7 @@
                     link: 'https://github.com/phemtech-solutions/PhemSentinel'
                 },
                 {
-                    id: 2,
+                    id: 3,
                     title: 'PhishPhem - AI Phishing Analyzer',
                     category: 'ai-automation',
                     short_desc: 'Web tool for analyzing phishing emails with heuristic rules and AI.',
@@ -344,7 +360,7 @@
                     link: 'https://github.com/phemtech-solutions/PhishPhem'
                 },
                 {
-                    id: 3,
+                    id: 4,
                     title: 'Honeypot System with NGFW',
                     category: 'threat-defense',
                     short_desc: 'Integrated honeypot system to detect and analyze Advanced Persistent Threats (APTs).',
@@ -359,7 +375,7 @@
                     link: 'https://oluwafemiab.github.io/ajijola.github.io/projects/ngfw'
                 },
                 {
-                    id: 4,
+                    id: 5,
                     title: 'SIEM & Network Security Solution',
                     category: 'infrastructure',
                     short_desc: 'Full-scale SIEM solution built with Wazuh and ntopng for real-time monitoring.',
@@ -374,7 +390,7 @@
                     link: 'https://github.com/oluwafemiab/siem-ntopng-wazuh' // Placeholder, as no specific link was provided for this in your list
                 },
                  {
-                    id: 5,
+                    id: 6,
                     title: 'CSP Analyzer',
                     category: 'web-security',
                     short_desc: 'Web-based tool that evaluates website CSP headers for security.',
@@ -389,7 +405,7 @@
                     link: 'https://phemtech-solutions.github.io/csp-analyzer'
                 },
                 {
-                    id: 6,
+                    id: 7,
                     title: 'Secure Email Gateway',
                     category: 'infrastructure',
                     short_desc: 'Designed a secure email gateway to protect SME communications.',
@@ -404,7 +420,7 @@
                     link: 'https://oluwafemiab.github.io/ajijola.github.io/projects/email-security-gateway'
                 },
                 {
-                    id: 7,
+                    id: 8,
                     title: 'Cybersecurity Awareness Platform',
                     category: 'web-security',
                     short_desc: 'Developed a training tool for SMEs aligned with NCSC Cyber Essentials.',
@@ -419,7 +435,7 @@
                     link: 'https://oluwafemiab.github.io/ajijola.github.io/projects/cyberaware'
                 },
                 {
-                    id: 8,
+                    id: 9,
                     title: 'Honeypot Comparative Study',
                     category: 'threat-defense',
                     short_desc: 'Comparative analysis of honeypots using ELK Stack for threat detection.',
@@ -434,7 +450,7 @@
                     link: 'https://oluwafemiab.github.io/ajijola.github.io/projects/honeypot-comparison'
                 },
                 {
-                    id: 9,
+                    id: 10,
                     title: 'Secure Development of a Wellness Platform',
                     category: 'web-security',
                     short_desc: 'Built a wellness platform with emphasis on secure development and data protection.',
