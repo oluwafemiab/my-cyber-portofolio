@@ -476,33 +476,32 @@
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
             const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-            
-            function renderProjects() {
-              const container = document.getElementById('project-gallery');
-              container.innerHTML = "";
-            
-              projects.forEach(project => {
-                const div = document.createElement('div');
-                div.className = "bg-white rounded-xl shadow-md p-6 flex flex-col justify-between";
-            
-                div.innerHTML = `
-                  <h3 class="text-xl font-semibold text-gray-800 mb-2">${project.title}</h3>
-                  <p class="text-gray-600 text-sm mb-4">${project.description}</p>
-                  <div class="flex flex-wrap gap-2 mb-4">
-                    ${project.tags.map(tag => `
-                      <span class="bg-teal-100 text-teal-800 text-xs font-semibold px-3 py-1 rounded-full">${tag}</span>
-                    `).join('')}
-                  </div>
-                  <div class="mt-auto pt-2">
-                    <a href="${project.link}" target="_blank" rel="noopener noreferrer"
-                      class="inline-block w-full text-center bg-teal-600 text-white text-sm font-medium py-2 px-4 rounded-lg hover:bg-teal-700 transition">
-                      View Project Details
-                    </a>
-                  </div>
-                `;
-            
-                container.appendChild(div);
-              });
+
+            function renderProjects(filter = 'all') {
+                gallery.innerHTML = '';
+                const filteredProjects = filter === 'all' ? projects : projects.filter(p => p.category === filter);
+
+                filteredProjects.forEach(project => {
+                    const card = document.createElement('div');
+                    card.className = 'project-card bg-white rounded-lg overflow-hidden shadow-md cursor-pointer';
+                    card.dataset.projectId = project.id;
+                    card.innerHTML = `
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">${project.title}</h3>
+                            <p class="text-slate-600 mb-4">${project.short_desc}</p>
+                            <div class="flex flex-wrap gap-2">
+                                ${project.tags.map(tag => `<span class="bg-teal-100 text-teal-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">${tag}</span>`).join('')}
+                            </div>
+                        </div>
+                         <div class="mt-auto pt-2">
+                            <a href="${project.link}" target="_blank" rel="noopener noreferrer"
+                              class="inline-block w-full text-center bg-teal-600 text-white text-sm font-medium py-2 px-4 rounded-lg hover:bg-teal-700 transition">
+                              View Project Details
+                            </a>
+                          </div>
+                    `;
+                    gallery.appendChild(card);
+                });
             }
 
             function openModal(projectId) {
