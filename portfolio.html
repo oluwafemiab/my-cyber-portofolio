@@ -328,7 +328,6 @@
                         "User-friendly web interface for ease of use."
                     ],
                     "link": "https://github.com/phemtech-solutions/VulnScan-Reporter",
-                    "live_demo": "https://vulnscan-reporter-qf62cmi9hc2t5dg4shef6u.streamlit.app/"
                 },
                 {
                     id: 2,
@@ -482,46 +481,87 @@
                 const filteredProjects = filter === 'all' ? projects : projects.filter(p => p.category === filter);
 
                 filteredProjects.forEach(project => {
-                    const card = document.createElement('div');
-                    card.className = 'project-card bg-white rounded-lg overflow-hidden shadow-md cursor-pointer';
-                    card.dataset.projectId = project.id;
-                    card.innerHTML = `
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">${project.title}</h3>
-                            <p class="text-slate-600 mb-4">${project.short_desc}</p>
-                            <div class="flex flex-wrap gap-2">
-                                ${project.tags.map(tag => `<span class="bg-teal-100 text-teal-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">${tag}</span>`).join('')}
-                            </div>
+                    const projectCard = document.createElement('div');
+                    projectCard.className = 'project-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-200 cursor-pointer';
+                    projectCard.dataset.projectId = project.id;
+                    projectCard.dataset.category = project.category; // Add category for filtering
+
+                    let tagsHtml = '';
+                    if (project.tags && project.tags.length > 0) {
+                        project.tags.forEach(tag => {
+                            tagsHtml += `<span class="skill-badge">${tag}</span>`;
+                        });
+                    }
+
+                    projectCard.innerHTML = `
+                        <h3 class="text-xl font-bold text-indigo-700 mb-2">${project.title}</h3>
+                        <p class="text-gray-700 mb-4">${project.short_desc}</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${tagsHtml}
                         </div>
+                        <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out">
+                            View Details
+                        </button>
                     `;
-                    gallery.appendChild(card);
+                    projectGallery.appendChild(projectCard);
+                });
+
+                / Re-attach event listeners to the newly created project cards
+                document.querySelectorAll('.project-card').forEach(card => {
+                    card.addEventListener('click', function() {
+                        const projectId = parseInt(this.dataset.projectId);
+                        const project = projectsData.find(p => p.id === projectId);
+                        if (project) {
+                            openModal(project);
+                        }
+                    });
                 });
             }
 
-            function openModal(projectId) {
-                const project = projects.find(p => p.id == projectId);
-                if (!project) return;
-                
-                document.getElementById('modal-title').textContent = project.title;
-                document.getElementById('modal-description').textContent = project.description;
-                
-                const tagsContainer = document.getElementById('modal-tags');
-                tagsContainer.innerHTML = project.tags.map(tag => `<span class="bg-slate-200 text-slate-700 text-sm font-semibold px-3 py-1 rounded-full">${tag}</span>`).join('');
+            // Function to open the modal and populate content
+            function openModal(project) {
+                modalTitle.textContent = project.title;
+                modalDescription.textContent = project.description;
 
-                const featuresContainer = document.getElementById('modal-features');
-                featuresContainer.innerHTML = project.features.map(feat => `<li>${feat}</li>`).join('');
+                // Clear previous features and tags
+                modalFeatures.innerHTML = '';
+                modalTags.innerHTML = ''; 
 
-                const linkContainer = document.getElementById('modal-link-container');
-                const link = document.getElementById('modal-link');
-                if (project.link) {
-                    link.href = project.link;
-                    linkContainer.style.display = 'block';
-                } else {
-                     linkContainer.style.display = 'none';
+                // Populate tags in modal
+                if (project.tags && project.tags.length > 0) {
+                    project.tags.forEach(tag => {
+                        const span = document.createElement('span');
+                        span.className = 'skill-badge'; 
+                        span.textContent = tag;
+                        modalTags.appendChild(span);
+                    });
                 }
 
-                modal.classList.remove('opacity-0', 'pointer-events-none');
-                modalContent.classList.remove('scale-95');
+                // Populate features in modal
+                if (project.features && project.features.length > 0) {
+                    project.features.forEach(feature => {
+                        const li = document.createElement('li');
+                        li.textContent = feature;
+                        modalFeatures.appendChild(li);
+                    });
+                }
+
+                // Set the href for the single "modal-link"
+                // Assuming 'link' is the primary project details link (e.g., GitHub repo)
+                if (project.link) {
+                    modalLink.href = project.link;
+                    modalLink.textContent = "View GitHub Repository"; // Or "View Project Details"
+                    modalLink.style.display = 'inline-block'; 
+                } else if (project.live_demo) { // Fallback to live demo if no main link
+                    modalLink.href = project.live_demo;
+                    modalLink.textContent = "View Live Demo";
+                    modalLink.style.display = 'inline-block';
+                }
+                else {
+                    modalLink.style.display = 'none'; // Hide if no link
+                }
+                
+                modal.classList.add('active'); // Use 'active' class for modal visibility
             }
 
             function closeModal() {
