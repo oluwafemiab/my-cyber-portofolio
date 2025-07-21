@@ -166,22 +166,6 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section class="card">
-            <h2 class="text-3xl font-semibold section-heading text-indigo-800">Contact</h2>
-            <p class="text-lg leading-relaxed mb-4">
-                Feel free to connect with me on LinkedIn or explore my work on GitHub.
-            </p>
-            <div class="flex space-x-4">
-                <a href="https://www.linkedin.com/in/ajijola-oluwafemi-blessing" target="_blank" class="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out">
-                    LinkedIn
-                </a>
-                <a href="https://github.com/phemtech-solutions" target="_blank" class="bg-gray-800 hover:bg-gray-900 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out">
-                    GitHub Profile
-                </a>
-            </div>
-        </section>
-
         <!-- Projects Section -->
         <section id="projects" class="py-20 bg-white rounded-2xl shadow-lg">
             <h2 class="text-3xl font-bold text-center mb-4">Innovation Showcase</h2>
@@ -329,24 +313,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const projects = [
-               {
-                    "id": 1,
-                    "title": "VulnScan Reporter",
-                    "category": "vulnerability-scanning",
-                    "short_desc": "A lightweight, interactive web-based vulnerability scanner for home labs and educational use.",
-                    "tags": ["Python", "Nmap", "Streamlit", "Vulnerability Assessment", "Network Scanning", "Cybersecurity", "Automation"],
-                    "description": "VulnScan Reporter is a lightweight, interactive web-based vulnerability scanner built with Python, `python-nmap`, and Streamlit. It simplifies network reconnaissance by providing 'AI-like' actionable recommendations for detected vulnerabilities, making cybersecurity learning and home lab assessments more accessible. It generates human-readable Markdown reports with scan summaries, host details, open ports, identified services, Nmap script output, and actionable security recommendations based on common Nmap script findings (e.g., anonymous FTP, weak SSH config, exposed server banners).",
-                    "features": [
-                        "Customizable Nmap Scans (Aggressive, All Ports, Vuln Scripts, etc.).",
-                        "Support for additional Nmap arguments for advanced users.",
-                        "Detailed Markdown reports with AI-like recommendations.",
-                        "Option to download the full report.",
-                        "User-friendly web interface for ease of use."
-                    ],
-                    "link": "https://github.com/phemtech-solutions/VulnScan-Reporter",
-                },
                 {
-                    id: 2,
+                    id: 1,
                     title: 'PhemSentinel - AI Log Analyzer',
                     category: 'ai-automation',
                     short_desc: 'Open-source tool to analyze Linux logs for brute-force attacks using AI.',
@@ -361,7 +329,7 @@
                     link: 'https://github.com/phemtech-solutions/PhemSentinel'
                 },
                 {
-                    id: 3,
+                    id: 2,
                     title: 'PhishPhem - AI Phishing Analyzer',
                     category: 'ai-automation',
                     short_desc: 'Web tool for analyzing phishing emails with heuristic rules and AI.',
@@ -376,7 +344,7 @@
                     link: 'https://github.com/phemtech-solutions/PhishPhem'
                 },
                 {
-                    id: 4,
+                    id: 3,
                     title: 'Honeypot System with NGFW',
                     category: 'threat-defense',
                     short_desc: 'Integrated honeypot system to detect and analyze Advanced Persistent Threats (APTs).',
@@ -391,7 +359,7 @@
                     link: 'https://oluwafemiab.github.io/ajijola.github.io/projects/ngfw'
                 },
                 {
-                    id: 5,
+                    id: 4,
                     title: 'SIEM & Network Security Solution',
                     category: 'infrastructure',
                     short_desc: 'Full-scale SIEM solution built with Wazuh and ntopng for real-time monitoring.',
@@ -406,7 +374,7 @@
                     link: 'https://github.com/oluwafemiab/siem-ntopng-wazuh' // Placeholder, as no specific link was provided for this in your list
                 },
                  {
-                    id: 6,
+                    id: 5,
                     title: 'CSP Analyzer',
                     category: 'web-security',
                     short_desc: 'Web-based tool that evaluates website CSP headers for security.',
@@ -421,7 +389,7 @@
                     link: 'https://phemtech-solutions.github.io/csp-analyzer'
                 },
                 {
-                    id: 7,
+                    id: 6,
                     title: 'Secure Email Gateway',
                     category: 'infrastructure',
                     short_desc: 'Designed a secure email gateway to protect SME communications.',
@@ -436,7 +404,7 @@
                     link: 'https://oluwafemiab.github.io/ajijola.github.io/projects/email-security-gateway'
                 },
                 {
-                    id: 8,
+                    id: 7,
                     title: 'Cybersecurity Awareness Platform',
                     category: 'web-security',
                     short_desc: 'Developed a training tool for SMEs aligned with NCSC Cyber Essentials.',
@@ -451,7 +419,7 @@
                     link: 'https://oluwafemiab.github.io/ajijola.github.io/projects/cyberaware'
                 },
                 {
-                    id: 9,
+                    id: 8,
                     title: 'Honeypot Comparative Study',
                     category: 'threat-defense',
                     short_desc: 'Comparative analysis of honeypots using ELK Stack for threat detection.',
@@ -466,7 +434,7 @@
                     link: 'https://oluwafemiab.github.io/ajijola.github.io/projects/honeypot-comparison'
                 },
                 {
-                    id: 10,
+                    id: 9,
                     title: 'Secure Development of a Wellness Platform',
                     category: 'web-security',
                     short_desc: 'Built a wellness platform with emphasis on secure development and data protection.',
@@ -497,87 +465,46 @@
                 const filteredProjects = filter === 'all' ? projects : projects.filter(p => p.category === filter);
 
                 filteredProjects.forEach(project => {
-                    const projectCard = document.createElement('div');
-                    projectCard.className = 'project-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-200 cursor-pointer';
-                    projectCard.dataset.projectId = project.id;
-                    projectCard.dataset.category = project.category; // Add category for filtering
-
-                    let tagsHtml = '';
-                    if (project.tags && project.tags.length > 0) {
-                        project.tags.forEach(tag => {
-                            tagsHtml += `<span class="skill-badge">${tag}</span>`;
-                        });
-                    }
-
-                    projectCard.innerHTML = `
-                        <h3 class="text-xl font-bold text-indigo-700 mb-2">${project.title}</h3>
-                        <p class="text-gray-700 mb-4">${project.short_desc}</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            ${tagsHtml}
+                    const card = document.createElement('div');
+                    card.className = 'project-card bg-white rounded-lg overflow-hidden shadow-md cursor-pointer';
+                    card.dataset.projectId = project.id;
+                    card.innerHTML = `
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">${project.title}</h3>
+                            <p class="text-slate-600 mb-4">${project.short_desc}</p>
+                            <div class="flex flex-wrap gap-2">
+                                ${project.tags.map(tag => `<span class="bg-teal-100 text-teal-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">${tag}</span>`).join('')}
+                            </div>
                         </div>
-                        <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out">
-                            View Details
-                        </button>
                     `;
-                    projectGallery.appendChild(projectCard);
-                });
-
-                / Re-attach event listeners to the newly created project cards
-                document.querySelectorAll('.project-card').forEach(card => {
-                    card.addEventListener('click', function() {
-                        const projectId = parseInt(this.dataset.projectId);
-                        const project = projectsData.find(p => p.id === projectId);
-                        if (project) {
-                            openModal(project);
-                        }
-                    });
+                    gallery.appendChild(card);
                 });
             }
 
-            // Function to open the modal and populate content
-            function openModal(project) {
-                modalTitle.textContent = project.title;
-                modalDescription.textContent = project.description;
-
-                // Clear previous features and tags
-                modalFeatures.innerHTML = '';
-                modalTags.innerHTML = ''; 
-
-                // Populate tags in modal
-                if (project.tags && project.tags.length > 0) {
-                    project.tags.forEach(tag => {
-                        const span = document.createElement('span');
-                        span.className = 'skill-badge'; 
-                        span.textContent = tag;
-                        modalTags.appendChild(span);
-                    });
-                }
-
-                // Populate features in modal
-                if (project.features && project.features.length > 0) {
-                    project.features.forEach(feature => {
-                        const li = document.createElement('li');
-                        li.textContent = feature;
-                        modalFeatures.appendChild(li);
-                    });
-                }
-
-                // Set the href for the single "modal-link"
-                // Assuming 'link' is the primary project details link (e.g., GitHub repo)
-                if (project.link) {
-                    modalLink.href = project.link;
-                    modalLink.textContent = "View GitHub Repository"; // Or "View Project Details"
-                    modalLink.style.display = 'inline-block'; 
-                } else if (project.live_demo) { // Fallback to live demo if no main link
-                    modalLink.href = project.live_demo;
-                    modalLink.textContent = "View Live Demo";
-                    modalLink.style.display = 'inline-block';
-                }
-                else {
-                    modalLink.style.display = 'none'; // Hide if no link
-                }
+            function openModal(projectId) {
+                const project = projects.find(p => p.id == projectId);
+                if (!project) return;
                 
-                modal.classList.add('active'); // Use 'active' class for modal visibility
+                document.getElementById('modal-title').textContent = project.title;
+                document.getElementById('modal-description').textContent = project.description;
+                
+                const tagsContainer = document.getElementById('modal-tags');
+                tagsContainer.innerHTML = project.tags.map(tag => `<span class="bg-slate-200 text-slate-700 text-sm font-semibold px-3 py-1 rounded-full">${tag}</span>`).join('');
+
+                const featuresContainer = document.getElementById('modal-features');
+                featuresContainer.innerHTML = project.features.map(feat => `<li>${feat}</li>`).join('');
+
+                const linkContainer = document.getElementById('modal-link-container');
+                const link = document.getElementById('modal-link');
+                if (project.link) {
+                    link.href = project.link;
+                    linkContainer.style.display = 'block';
+                } else {
+                     linkContainer.style.display = 'none';
+                }
+
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modalContent.classList.remove('scale-95');
             }
 
             function closeModal() {
