@@ -496,12 +496,26 @@
 
                 const linkContainer = document.getElementById('modal-link-container');
                 const link = document.getElementById('modal-link');
+                
                 if (project.link) {
-                    link.href = project.link;
+                    link.setAttribute('href', project.link);
+                    link.setAttribute('target', '_blank');
+                    link.setAttribute('rel', 'noopener noreferrer');
                     linkContainer.style.display = 'block';
                 } else {
-                     linkContainer.style.display = 'none';
+                    link.setAttribute('href', '#');
+                    linkContainer.style.display = 'none';
                 }
+
+
+                // const linkContainer = document.getElementById('modal-link-container');
+                // const link = document.getElementById('modal-link');
+                // if (project.link) {
+                //     link.href = project.link;
+                //     linkContainer.style.display = 'block';
+                // } else {
+                //      linkContainer.style.display = 'none';
+                // }
 
                 modal.classList.remove('opacity-0', 'pointer-events-none');
                 modalContent.classList.remove('scale-95');
