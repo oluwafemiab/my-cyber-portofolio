@@ -289,7 +289,7 @@
     </button>
 
     <!-- Modal -->
-    <div id="project-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0">
+    <div id="project-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none">
         <div id="modal-content" class="bg-white rounded-lg shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300">
             <div class="sticky top-0 bg-white p-6 border-b border-slate-200 flex justify-between items-center">
                 <h3 id="modal-title" class="text-2xl font-bold"></h3>
@@ -328,6 +328,7 @@
                         "User-friendly web interface for ease of use."
                     ],
                     "link": "https://github.com/phemtech-solutions/VulnScan-Reporter",
+                    "live_demo": "https://vulnscan-reporter-qf62cmi9hc2t5dg4shef6u.streamlit.app/"
                 },
                 {
                     id: 2,
@@ -505,39 +506,23 @@
                 document.getElementById('modal-description').textContent = project.description;
                 
                 const tagsContainer = document.getElementById('modal-tags');
-                tagsContainer.innerHTML = project.tags.map(tag => <span class="bg-slate-200 text-slate-700 text-sm font-semibold px-3 py-1 rounded-full">${tag}</span>).join('');
+                tagsContainer.innerHTML = project.tags.map(tag => `<span class="bg-slate-200 text-slate-700 text-sm font-semibold px-3 py-1 rounded-full">${tag}</span>`).join('');
 
                 const featuresContainer = document.getElementById('modal-features');
-                featuresContainer.innerHTML = project.features.map(feat => <li>${feat}</li>).join('');
+                featuresContainer.innerHTML = project.features.map(feat => `<li>${feat}</li>`).join('');
 
                 const linkContainer = document.getElementById('modal-link-container');
                 const link = document.getElementById('modal-link');
-                
                 if (project.link) {
-                    link.setAttribute('href', project.link);
-                    link.setAttribute('target', '_blank');
-                    link.setAttribute('rel', 'noopener noreferrer');
+                    link.href = project.link;
                     linkContainer.style.display = 'block';
                 } else {
-                    link.setAttribute('href', '#');
-                    linkContainer.style.display = 'none';
+                     linkContainer.style.display = 'none';
                 }
-
-
-                // const linkContainer = document.getElementById('modal-link-container');
-                // const link = document.getElementById('modal-link');
-                // if (project.link) {
-                //     link.href = project.link;
-                //     linkContainer.style.display = 'block';
-                // } else {
-                //      linkContainer.style.display = 'none';
-                // }
 
                 modal.classList.remove('opacity-0', 'pointer-events-none');
                 modalContent.classList.remove('scale-95');
             }
-
-
 
             function closeModal() {
                 modal.classList.add('opacity-0', 'pointer-events-none');
