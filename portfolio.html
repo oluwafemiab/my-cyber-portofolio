@@ -498,44 +498,46 @@
             }
 
             function openModal(projectId) {
-                const project = projects.find(p => p.id == projectId);
-                if (!project) return;
-                
-                document.getElementById('modal-title').textContent = project.title;
-                document.getElementById('modal-description').textContent = project.description;
-                
-                const tagsContainer = document.getElementById('modal-tags');
-                tagsContainer.innerHTML = project.tags.map(tag => `<span class="bg-slate-200 text-slate-700 text-sm font-semibold px-3 py-1 rounded-full">${tag}</span>`).join('');
-
-                const featuresContainer = document.getElementById('modal-features');
-                featuresContainer.innerHTML = project.features.map(feat => `<li>${feat}</li>`).join('');
-
-                const linkContainer = document.getElementById('modal-link-container');
-                const link = document.getElementById('modal-link');
-                
-                if (project.link) {
-                    link.setAttribute('href', project.link);
-                    link.setAttribute('target', '_blank');
-                    link.setAttribute('rel', 'noopener noreferrer');
-                    linkContainer.style.display = 'block';
-                } else {
-                    link.setAttribute('href', '#');
-                    linkContainer.style.display = 'none';
-                }
-
-
-                // const linkContainer = document.getElementById('modal-link-container');
-                // const link = document.getElementById('modal-link');
-                // if (project.link) {
-                //     link.href = project.link;
-                //     linkContainer.style.display = 'block';
-                // } else {
-                //      linkContainer.style.display = 'none';
-                // }
-
-                modal.classList.remove('opacity-0', 'pointer-events-none');
-                modalContent.classList.remove('scale-95');
+              const project = projects.find(p => p.id == projectId);
+              if (!project) return;
+            
+              const modal = document.getElementById('project-modal');
+              const modalTitle = document.getElementById('modal-title');
+              const modalDescription = document.getElementById('modal-description');
+              const modalTags = document.getElementById('modal-tags');
+              const modalImage = document.getElementById('modal-image');
+              const linkContainer = document.getElementById('modal-link-container');
+              const link = document.getElementById('modal-link');
+            
+              modalTitle.textContent = project.title;
+              modalDescription.textContent = project.description;
+              modalImage.src = project.image;
+            
+              modalTags.innerHTML = "";
+              project.tags.forEach(tag => {
+                const span = document.createElement('span');
+                span.className = "inline-block bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded";
+                span.textContent = tag;
+                modalTags.appendChild(span);
+              });
+            
+              // ✅ Safely update link
+              if (project.link && project.link.startsWith('http')) {
+                link.href = project.link;
+                link.target = "_blank";
+                link.rel = "noopener noreferrer";
+                linkContainer.style.display = 'block';
+              } else {
+                link.href = "#";
+                linkContainer.style.display = 'none'; // hide if no valid link
+              }
+            
+              // ✅ Show modal
+              modal.classList.remove('opacity-0', 'pointer-events-none');
+              const modalContent = modal.querySelector('.bg-white');
+              modalContent.classList.remove('scale-95');
             }
+
 
             function closeModal() {
                 modal.classList.add('opacity-0', 'pointer-events-none');
