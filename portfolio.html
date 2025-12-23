@@ -129,11 +129,59 @@
         <!-- Skills Section -->
         <section id="skills" class="py-20">
             <h2 class="text-3xl font-bold text-center mb-4">Core Competencies</h2>
-            <p class="text-center text-slate-600 max-w-2xl mx-auto mb-12">My expertise spans a wide range of cybersecurity domains, from offensive security simulations to defensive infrastructure design and innovative AI applications, reflecting a holistic approach to digital security.</p>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="chart-container">
-                    <canvas id="skillsChart"></canvas>
-                </div>
+            <p class="text-center text-slate-600 max-w-2xl mx-auto mb-12">
+  My core strengths combine full stack software development with practical cybersecurity experience. I focus on 
+                building secure, reliable applications while applying security principles, threat awareness, and automation
+                where they add real value.
+</p>
+
+
+               <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="chart-container">
+            <canvas id="skillsChart"></canvas>
+        </div>
+
+        <!-- FULL STACK / SOFTWARE ENGINEERING GRID -->
+        <div class="grid grid-cols-2 gap-6 text-slate-700">
+            <div class="bg-white p-4 rounded-lg shadow-sm">
+                <span class="text-2xl">💻</span>
+                <h3 class="font-semibold mt-2">Full Stack Development</h3>
+                <p class="text-sm text-slate-500">Laravel, PHP, Python, Vue.js, React, JavaScript, SQL</p>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow-sm">
+                <span class="text-2xl">🔐</span>
+                <h3 class="font-semibold mt-2">Secure Application Design</h3>
+                <p class="text-sm text-slate-500">Authentication, Authorization, OWASP, Data Protection</p>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow-sm">
+                <span class="text-2xl">⚙️</span>
+                <h3 class="font-semibold mt-2">Backend & API Engineering</h3>
+                <p class="text-sm text-slate-500">REST APIs, Architecture, Performance Optimisation</p>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow-sm">
+                <span class="text-2xl">☁️</span>
+                <h3 class="font-semibold mt-2">Deployment & DevOps</h3>
+                <p class="text-sm text-slate-500">Git, CI/CD, Cloud Hosting, Containers</p>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow-sm">
+                <span class="text-2xl">🤖</span>
+                <h3 class="font-semibold mt-2">Automation & AI</h3>
+                <p class="text-sm text-slate-500">Python Automation, AI-assisted Security Tools</p>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow-sm">
+                <span class="text-2xl">🛡️</span>
+                <h3 class="font-semibold mt-2">Applied Cybersecurity</h3>
+                <p class="text-sm text-slate-500">Threat Awareness, Vulnerability Assessment</p>
+            </div>
+        </div>
+    </div>
+
+                
                 <div class="grid grid-cols-2 gap-6 text-slate-700">
                     <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                         <span class="text-teal-600 text-2xl">🛡️</span>
@@ -165,7 +213,6 @@
                         <h3 class="font-semibold mt-2">Honeypot Deployment & Analysis</h3>
                         <p class="text-sm text-slate-500">Cowrie, Dionaea, HoneyDB, Heralding</p>
                     </div>
-                </div>
             </div>
         </section>
 
@@ -627,17 +674,20 @@
             new Chart(ctx, {
                 type: 'radar',
                 data: {
-                    labels: ['Threat Defense', 'Infrastructure Security', 'Incident Response', 'Secure Development', 'AI & Automation', 'Threat Intelligence'],
-                    datasets: [{
-                        label: 'Expertise Level',
-                        data: [90, 85, 80, 75, 95, 88],
-                        backgroundColor: 'rgba(13, 148, 136, 0.2)',
-                        borderColor: 'rgba(13, 148, 136, 1)',
-                        pointBackgroundColor: 'rgba(13, 148, 136, 1)',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: 'rgba(13, 148, 136, 1)'
-                    }]
+                    labels: [
+                'Threat Defense',
+                'Infrastructure Security',
+                'Incident Response',
+                'Secure Development',
+                'AI & Automation',
+                'Threat Intelligence'
+            ],
+            datasets: [{
+                data: [90, 85, 80, 88, 92, 87],
+                backgroundColor: 'rgba(13,148,136,0.2)',
+                borderColor: 'rgba(13,148,136,1)',
+                pointBackgroundColor: 'rgba(13,148,136,1)'
+            }]
                 },
                 options: {
                     responsive: true,
