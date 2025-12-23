@@ -711,21 +711,22 @@
             const ctx = document.getElementById('skillsChart').getContext('2d');
             new Chart(ctx, {
                 type: 'radar',
-                data: {
-                    labels: [
-                'Threat Defense',
-                'Infrastructure Security',
-                'Incident Response',
-                'Secure Development',
-                'AI & Automation',
-                'Threat Intelligence'
-            ],
-            datasets: [{
-                data: [90, 85, 80, 88, 92, 87],
-                backgroundColor: 'rgba(13,148,136,0.2)',
-                borderColor: 'rgba(13,148,136,1)',
-                pointBackgroundColor: 'rgba(13,148,136,1)'
-            }]
+               data: {
+  labels: [
+    'Full Stack Development',
+    'Backend & API Engineering',
+    'Secure Development',
+    'DevOps & Deployment',
+    'AI & Automation',
+    'Cybersecurity'
+  ],
+  datasets: [{
+    label: 'Expertise Level',
+    data: [90, 88, 92, 85, 87, 82],
+    backgroundColor: 'rgba(13, 148, 136, 0.2)',
+    borderColor: 'rgba(13, 148, 136, 1)',
+    pointBackgroundColor: 'rgba(13, 148, 136, 1)'
+  }]
                 },
                 options: {
                     responsive: true,
